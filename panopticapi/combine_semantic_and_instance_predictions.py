@@ -120,6 +120,8 @@ def combine_to_panoptic_multi_core(img_id2img, inst_by_image,
     panoptic_json = []
     for p in processes:
         panoptic_json.extend(p.get())
+    workers.close()
+    workers.join()
     return panoptic_json
 
 
